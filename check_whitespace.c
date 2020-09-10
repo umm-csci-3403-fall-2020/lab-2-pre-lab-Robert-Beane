@@ -56,17 +56,22 @@ char* strip(char* str) {
 int is_clean(char* str) {
   char* cleaned;
   int result;
-
+  int sLen;
+  
   // We check if it's clean by calling strip and seeing if the
   // result is the same as the original string.
   cleaned = strip(str);
 
+  sLen = strlen(cleaned);
   // strcmp compares two strings, returning a negative value if
   // the first is less than the second (in alphabetical order),
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
   result = strcmp(str, cleaned);
 
+  if (sLen != 0){
+    free(cleaned);}
+  
   return result == 0;
 }
 
